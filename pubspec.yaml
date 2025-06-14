@@ -15,6 +15,8 @@ dependencies:
     path: core/constants
   routing:
     path: core/routing
+  cache:
+    path: core/cache
   flutter:
     sdk: flutter
   melos: ^6.3.2
@@ -22,6 +24,7 @@ dependencies:
   dio: ^5.8.0+1
   go_router: ^15.2.0
   shared_preferences: ^2.5.3
+  internet_connection_checker: ^1.0.0+1
 
   cupertino_icons: ^1.0.8
 

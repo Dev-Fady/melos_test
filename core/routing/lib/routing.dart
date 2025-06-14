@@ -8,9 +8,15 @@ GoRouter createRouter(String initialLocation) {
       GoRoute(
         path: RouterName.login,
         builder: (context, state) {
-          return  LoginScreen();
+          return LoginScreen();
         },
       ),
     ],
   );
+}
+
+GoRouter initializeRouter() {
+  // final bool isLogin = CacheHelper().getData(key: 'isLogin') ?? false;
+  // return createRouter(isLogin ? RouterName.userPage : RouterName.homePage);
+  return createRouter(RouterName.login);
 }

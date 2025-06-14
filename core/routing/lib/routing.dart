@@ -1,5 +1,9 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:login/domain/repository/login_repository.dart';
+import 'package:login/presenatation/cubit/login/login_cubit.dart';
 import 'package:login/presenatation/login_screen.dart';
+import 'package:melos_test/DI/dependency_injection.dart';
 import 'package:routing/router_name.dart';
 
 GoRouter createRouter(String initialLocation) {
@@ -16,7 +20,11 @@ GoRouter createRouter(String initialLocation) {
         path: '/',
         name: '/',
         builder: (context, state) {
-          return LoginScreen();
+          return BlocProvider(
+            create: (context) =>
+                LoginCubit(loginRepository: getIt<LoginRepository>()),
+            child: LoginScreen(),
+          );
         },
       ),
     ],

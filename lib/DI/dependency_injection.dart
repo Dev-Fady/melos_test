@@ -2,6 +2,8 @@ import 'package:constants/app_constants.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:login/data/local_data/login_local_data_scurce.dart';
+import 'package:login/data/local_data/login_local_data_scurce_impl.dart';
 import 'package:login/data/remote/login_remote_data_source.dart';
 import 'package:login/data/remote/login_remote_data_source_impl.dart';
 import 'package:login/data/repo/login_repo_impl.dart';
@@ -42,6 +44,12 @@ Future<void> setupGetIt() async {
             networkInfo: getIt<NetworkInfo>(),
           ));
 
+  getIt.registerLazySingleton<LoginLocalDataSource>(
+    () => LoginLocalDataScurceImpl(),
+  );
+
   getIt.registerLazySingleton<LoginRepository>(() => LoginRepoImpl(
-      loginRemoteDataSourcel: getIt<LoginRemoteDataSource>()));
+        loginRemoteDataSourcel: getIt<LoginRemoteDataSource>(),
+        localDataSource: getIt<LoginLocalDataSource>(),
+      ));
 }

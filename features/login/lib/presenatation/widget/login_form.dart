@@ -30,6 +30,7 @@ class _LoginFormState extends State<LoginForm> {
     return Form(
       key: formKey,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           EmailField(
               controller: emailController,

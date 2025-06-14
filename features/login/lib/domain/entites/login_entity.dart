@@ -1,13 +1,10 @@
 class LoginEntity {
-  String name;
+  String accessToken;
 
-  String phone;
-
-  String age;
+  String refreshToken;
 
   LoginEntity({
-    required this.name,
-    required this.phone,
-    required this.age,
+    required this.accessToken,
+    required this.refreshToken,
   });
 }

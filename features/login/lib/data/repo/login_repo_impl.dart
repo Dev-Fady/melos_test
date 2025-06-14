@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:login/data/local_data/login_local_data_scurce.dart';
 import 'package:login/data/mapper/login_mapper.dart';
 import 'package:login/data/remote/login_remote_data_source.dart';
 import 'package:login/data/request/login_request.dart';
@@ -8,8 +9,10 @@ import 'package:services/error_handler/failure.dart';
 
 class LoginRepoImpl implements LoginRepository {
   final LoginRemoteDataSource loginRemoteDataSourcel;
+  final LoginLocalDataSource localDataSource;
 
-  LoginRepoImpl({required this.loginRemoteDataSourcel});
+  LoginRepoImpl(
+      {required this.loginRemoteDataSourcel, required this.localDataSource});
 
   @override
   Future<Either<Failure, LoginEntity>> login({
@@ -20,7 +23,10 @@ class LoginRepoImpl implements LoginRepository {
         loginRequest: LoginRequest(email: email, password: password));
     return result.fold(
       (failure) => Left(failure),
-      (response) => Right(response.toEntity()),
+      (response) {
+        localDataSource.cacheLoginData(loginModel: response);
+        return Right(response.toEntity());
+      },
     );
   }
 }

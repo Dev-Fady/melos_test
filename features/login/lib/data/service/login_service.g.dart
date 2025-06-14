@@ -14,7 +14,7 @@ class _LoginService implements LoginService {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'https://minafarid.mocklab.io';
+    baseUrl ??= 'https://api.escuelajs.co/api/v1';
   }
 
   final Dio _dio;
@@ -24,17 +24,12 @@ class _LoginService implements LoginService {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<HttpResponse<LoginModel>> login(
-    String email,
-    String password,
-  ) async {
+  Future<HttpResponse<LoginModel>> login(LoginRequest request) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = {
-      'email': email,
-      'password': password,
-    };
+    final _data = <String, dynamic>{};
+    _data.addAll(request.toJson());
     final _options = _setStreamType<HttpResponse<LoginModel>>(Options(
       method: 'POST',
       headers: _headers,
@@ -42,7 +37,7 @@ class _LoginService implements LoginService {
     )
         .compose(
           _dio.options,
-          '/customers/login',
+          '/auth/login',
           queryParameters: queryParameters,
           data: _data,
         )

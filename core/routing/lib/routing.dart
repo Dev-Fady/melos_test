@@ -1,5 +1,16 @@
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
+import 'package:go_router/go_router.dart';
+import 'package:login/presenatation/login_screen.dart';
+import 'package:routing/router_name.dart';
+
+GoRouter createRouter(String initialLocation) {
+  return GoRouter(
+    routes: [
+      GoRoute(
+        path: RouterName.login,
+        builder: (context, state) {
+          return  LoginScreen();
+        },
+      ),
+    ],
+  );
 }

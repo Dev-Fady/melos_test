@@ -10,9 +10,12 @@ environment:
 dependencies:
   login:
     path: ../../features/login
+  melos_test:
+    path: ../../
   flutter:
     sdk: flutter
   go_router: ^15.2.0
+  flutter_bloc: ^9.1.1
 
 dev_dependencies:
   flutter_test:

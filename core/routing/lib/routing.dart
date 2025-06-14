@@ -7,6 +7,14 @@ GoRouter createRouter(String initialLocation) {
     routes: [
       GoRoute(
         path: RouterName.login,
+        name: RouterName.login,
+        builder: (context, state) {
+          return LoginScreen();
+        },
+      ),
+      GoRoute(
+        path: '/',
+        name: '/',
         builder: (context, state) {
           return LoginScreen();
         },

@@ -19,7 +19,7 @@ class LoginRemoteDataSourceImpl extends LoginRemoteDataSource {
       networkInfo,
       () async {
         final response =
-            await loginService.login(loginRequest.email, loginRequest.password);
+            await loginService.login(loginRequest);
         return response.data;
       },
     );

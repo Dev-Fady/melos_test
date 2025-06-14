@@ -7,9 +7,8 @@ import 'package:login/domain/entites/login_entity.dart';
 extension LoginModelMapper on LoginModel? {
   LoginEntity toEntity() {
     return LoginEntity(
-      name: this?.name.orEmpty() ?? Constant.empty,
-      phone: this?.phone.orEmpty() ?? Constant.empty,
-      age: this?.age.orEmpty() ?? Constant.empty,
+      accessToken: this?.accessToken.orEmpty() ?? Constant.empty,
+      refreshToken: this?.refreshToken.orEmpty() ?? Constant.empty,
     );
   }
 }

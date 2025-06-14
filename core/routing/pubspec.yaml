@@ -2,14 +2,17 @@ name: routing
 description: "A new Flutter package project."
 version: 0.0.1
 homepage:
-
+publish_to: none
 environment:
   sdk: ^3.6.1
   flutter: ">=1.17.0"
 
 dependencies:
+  login:
+    path: ../../features/login
   flutter:
     sdk: flutter
+  go_router: ^15.2.0
 
 dev_dependencies:
   flutter_test:

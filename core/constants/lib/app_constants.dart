@@ -6,4 +6,6 @@ class AppConstants {
   static const String defaultLanguage = "en";
 
   static const Duration timeoutDuration = Duration(seconds: 60);
+
+  static const String cachedLoginKey = 'CACHED_LOGIN';
 }

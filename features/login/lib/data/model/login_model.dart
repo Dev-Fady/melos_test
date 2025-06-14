@@ -4,19 +4,15 @@ part 'login_model.g.dart';
 
 @JsonSerializable()
 class LoginModel {
-  @JsonKey(name: "name")
-  String? name;
+  @JsonKey(name: "access_token")
+  String? accessToken;
 
-  @JsonKey(name: "phone")
-  String? phone;
-
-  @JsonKey(name: "age")
-  String? age;
+  @JsonKey(name: "refresh_token")
+  String? refreshToken;
 
   LoginModel({
-    this.name,
-    this.phone,
-    this.age,
+    this.accessToken,
+    this.refreshToken,
   });
 
   // from json

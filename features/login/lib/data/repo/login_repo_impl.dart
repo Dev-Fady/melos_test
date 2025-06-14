@@ -12,10 +12,12 @@ class LoginRepoImpl implements LoginRepository {
   LoginRepoImpl({required this.loginRemoteDataSourcel});
 
   @override
-  Future<Either<Failure, LoginEntity>> login(
-      {required LoginRequest loginRequest}) async {
-    final result =
-        await loginRemoteDataSourcel.login(loginRequest: loginRequest);
+  Future<Either<Failure, LoginEntity>> login({
+    required String email,
+    required String password,
+  }) async {
+    final result = await loginRemoteDataSourcel.login(
+        loginRequest: LoginRequest(email: email, password: password));
     return result.fold(
       (failure) => Left(failure),
       (response) => Right(response.toEntity()),

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+// import 'package:login/data/local_data/login_local_data_scurce.dart';
+// import 'package:login/data/local_data/login_local_data_scurce.dart';
+// import 'package:login/data/local_data/login_local_data_scurce_impl.dart';
+// import 'package:login/data/model/login_model.dart';
 import 'package:login/presenatation/cubit/login/login_cubit.dart';
 import 'package:login/presenatation/widget/email_field.dart';
 import 'package:login/presenatation/widget/login_button.dart';
@@ -17,6 +21,25 @@ class _LoginFormState extends State<LoginForm> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
+
+  // LoginModel? user;
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _loadUserData();
+  // }
+
+  // Future<void> _loadUserData() async {
+  //   final localDataSource = getIt<LoginLocalDataSource>();
+
+  //   final cachedUser = await localDataSource.getCachedLoginData();
+  //   if (cachedUser != null) {
+  //     setState(() {
+  //       user = cachedUser;
+  //     });
+  //   }
+  // }
 
   bool isLoading = false;
 

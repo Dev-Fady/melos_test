@@ -9,4 +9,5 @@ class AppConstants {
 
   static const String cachedLoginKey = 'CACHED_LOGIN';
   static const String cachedHomeKey = 'CACHED_Home';
+  static const String iSLOGIN = 'is_Login_True';
 }

@@ -13,17 +13,11 @@ import 'package:routing/router_name.dart';
 
 GoRouter createRouter(String initialLocation) {
   return GoRouter(
+    initialLocation: initialLocation,
     routes: [
       GoRoute(
         path: RouterName.login,
         name: RouterName.login,
-        builder: (context, state) {
-          return LoginScreen();
-        },
-      ),
-      GoRoute(
-        path: '/',
-        name: '/',
         builder: (context, state) {
           return BlocProvider(
             create: (context) =>

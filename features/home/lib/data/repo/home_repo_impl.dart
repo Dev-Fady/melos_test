@@ -9,17 +9,17 @@ import 'package:services/error_handler/failure.dart';
 
 class HomeRepoImpl implements HomeRepo {
   final HomeRemoteDataSource homeRemoteDataSource;
-  final LoginLocalDataSource localDataSource;
+  final LoginLocalDataSource loginLocalDataSource;
   final HomeLocalDataSource homeLocalDataSource;
 
   HomeRepoImpl(
       {required this.homeRemoteDataSource,
-      required this.localDataSource,
+      required this.loginLocalDataSource,
       required this.homeLocalDataSource});
 
   @override
   Future<Either<Failure, HomeEntity>> getHomeData() async {
-    final loginModel = await localDataSource.getCachedLoginData();
+    final loginModel = await loginLocalDataSource.getCachedLoginData();
     final token = loginModel?.accessToken ?? '';
     final result = await homeRemoteDataSource.getHomeData(token: token);
     return result.fold(

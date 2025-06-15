@@ -1,7 +1,13 @@
-# melos_managed_dependency_overrides: extensions,login,services
+# melos_managed_dependency_overrides: extensions,login,services,cache,constants,home
 dependency_overrides:
+  cache:
+    path: ..\\cache
+  constants:
+    path: ..\\constants
   extensions:
     path: ..\\extensions
+  home:
+    path: ..\\..\\features\\home
   login:
     path: ..\\..\\features\\login
   services:

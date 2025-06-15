@@ -7,7 +7,7 @@ part of 'home_model.dart';
 // **************************************************************************
 
 HomeModel _$HomeModelFromJson(Map<String, dynamic> json) => HomeModel(
-      id: json['id'] as String?,
+      id: (json['id'] as num?)?.toInt(),
       email: json['email'] as String?,
       password: json['password'] as String?,
       name: json['name'] as String?,

@@ -5,7 +5,7 @@ part 'home_model.g.dart';
 @JsonSerializable()
 class HomeModel {
   @JsonKey(name: "id")
-  String? id;
+  int? id;
   @JsonKey(name: "email")
   String? email;
   @JsonKey(name: "password")
@@ -18,12 +18,12 @@ class HomeModel {
   String? imageAvatar;
 
   HomeModel({
-    required this.id,
-    required this.email,
-    required this.password,
-    required this.name,
-    required this.role,
-    required this.imageAvatar,
+    this.id,
+    this.email,
+    this.password,
+    this.name,
+    this.role,
+    this.imageAvatar,
   });
 
   factory HomeModel.fromJson(Map<String, dynamic> json) =>

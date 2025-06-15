@@ -6,7 +6,7 @@ import 'package:home/domain/entites/home_entity.dart';
 extension HomeModelMapper on HomeModel? {
   HomeEntity toEntity() {
     return HomeEntity(
-      id: this?.id.orEmpty() ?? Constant.empty,
+      id: this?.id.orZero() ?? Constant.zero,
       email: this?.email.orEmpty() ?? Constant.empty,
       password: this?.password.orEmpty() ?? Constant.empty,
       name: this?.name.orEmpty() ?? Constant.empty,

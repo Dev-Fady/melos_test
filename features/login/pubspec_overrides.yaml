@@ -1,4 +1,4 @@
-# melos_managed_dependency_overrides: extensions,services,cache,constants
+# melos_managed_dependency_overrides: extensions,services,cache,constants,home,routing
 dependency_overrides:
   cache:
     path: ..\\..\\core\\cache
@@ -6,5 +6,9 @@ dependency_overrides:
     path: ..\\..\\core\\constants
   extensions:
     path: ..\\..\\core\\extensions
+  home:
+    path: ..\\home
+  routing:
+    path: ..\\..\\core\\routing
   services:
     path: ..\\..\\core\\services

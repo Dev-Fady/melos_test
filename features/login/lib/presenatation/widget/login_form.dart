@@ -1,6 +1,9 @@
+import 'package:cache/cache_helper.dart';
+import 'package:constants/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 // import 'package:login/data/local_data/login_local_data_scurce.dart';
 // import 'package:login/data/local_data/login_local_data_scurce.dart';
 // import 'package:login/data/local_data/login_local_data_scurce_impl.dart';
@@ -9,6 +12,7 @@ import 'package:login/presenatation/cubit/login/login_cubit.dart';
 import 'package:login/presenatation/widget/email_field.dart';
 import 'package:login/presenatation/widget/login_button.dart';
 import 'package:login/presenatation/widget/password_field.dart';
+import 'package:routing/router_name.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -46,7 +50,7 @@ class _LoginFormState extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<LoginCubit, LoginState>(
-      listener: (context, state) {
+      listener: (context, state) async{
         if (state is LoginLoading) {
           setState(() {
             isLoading = true;
@@ -57,6 +61,8 @@ class _LoginFormState extends State<LoginForm> {
           });
           // Handle successful login, e.g., navigate to home screen
           print('Login successful: ${state.loginEntity}');
+          await CacheHelper().saveData(key: AppConstants.iSLOGIN, value: true);
+          context.pushReplacementNamed(RouterName.home);
         } else if (state is LoginFailure) {
           setState(() {
             isLoading = false;

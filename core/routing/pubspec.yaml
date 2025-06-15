@@ -12,6 +12,10 @@ dependencies:
     path: ../../features/login
   home:
     path: ../../features/home
+  cache:
+    path: ../../core/cache
+  constants:
+    path: ../../core/constants
   melos_test:
     path: ../../
   flutter:

@@ -8,4 +8,5 @@ class AppConstants {
   static const Duration timeoutDuration = Duration(seconds: 60);
 
   static const String cachedLoginKey = 'CACHED_LOGIN';
+  static const String cachedHomeKey = 'CACHED_Home';
 }

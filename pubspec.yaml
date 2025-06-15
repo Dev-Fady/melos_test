@@ -11,6 +11,8 @@ dependencies:
     path: core/services
   login: 
     path: features/login
+  home: 
+    path: features/home
   constants:
     path: core/constants
   routing:

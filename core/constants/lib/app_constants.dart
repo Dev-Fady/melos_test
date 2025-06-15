@@ -1,5 +1,5 @@
 class AppConstants {
-  static const String baseUrl = "https://minafarid.mocklab.io";
+  static const String baseUrl = "https://api.escuelajs.co/api/v1";
 
   static const String defaultAccessToken = "Bearer your_token";
 

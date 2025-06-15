@@ -1,5 +1,5 @@
 class HomeEntity {
-  final String id;
+  final int id;
   final String email;
   final String password;
   final String name;

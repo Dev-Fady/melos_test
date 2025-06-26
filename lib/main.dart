@@ -1,4 +1,5 @@
 import 'package:cache/cache_helper.dart';
+import 'package:cache/secure_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:melos_test/DI/dependency_injection.dart';
@@ -7,8 +8,10 @@ import 'package:routing/routing.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setupGetIt();
-   await CacheHelper().init();
+  await CacheHelper().init();
   final GoRouter router = await initializeRouter();
+
+  SecureStorage.init();
   runApp(MyApp(router: router));
 }
 

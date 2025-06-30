@@ -8,7 +8,7 @@ import 'package:home/presentation/home_screen.dart';
 import 'package:login/domain/repository/login_repository.dart';
 import 'package:login/presenatation/cubit/login/login_cubit.dart';
 import 'package:login/presenatation/login_screen.dart';
-import 'package:main_navigation/presentation/widget/botton_nav_with_animated_icons.dart';
+import 'package:main_navigation/presentation/page/bottom_nav_page.dart';
 import 'package:melos_test/DI/dependency_injection.dart';
 import 'package:routing/router_name.dart';
 
@@ -39,10 +39,10 @@ GoRouter createRouter(String initialLocation) {
         },
       ),
       GoRoute(
-        path: RouterName.bottonNavWithAnimatedIcons,
-        name: RouterName.bottonNavWithAnimatedIcons,
+        path: RouterName.bottomNavPage,
+        name: RouterName.bottomNavPage,
         builder: (context, state) {
-          return BottonNavWithAnimatedIcons();
+          return BottomNavPage();
         },
       ),
     ],
@@ -52,6 +52,6 @@ GoRouter createRouter(String initialLocation) {
 GoRouter initializeRouter() {
   final bool isLogin =
       CacheHelper().getData(key: AppConstants.iSLOGIN) ?? false;
-  return createRouter(isLogin ? RouterName.bottonNavWithAnimatedIcons : RouterName.login);
+  return createRouter(isLogin ? RouterName.bottomNavPage : RouterName.login);
   // return createRouter(RouterName.login);
 }

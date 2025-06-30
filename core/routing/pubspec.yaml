@@ -12,6 +12,8 @@ dependencies:
     path: ../../features/login
   home:
     path: ../../features/home
+  main_navigation:
+    path: ../../features/main_navigation
   cache:
     path: ../../core/cache
   constants:

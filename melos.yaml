@@ -21,6 +21,7 @@ command:
       retrofit: ^4.4.2
       flutter_bloc: ^9.1.1
       flutter_secure_storage: ^9.2.4
+      rive: ^0.13.20
     
     dev_dependencies:
       retrofit_generator: ^9.2.0

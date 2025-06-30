@@ -44,7 +44,6 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/myPhoto.jpeg
     - assets/animated_icon_set_-_1_color.riv
 
   # example:

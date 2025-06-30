@@ -62,7 +62,7 @@ class _LoginFormState extends State<LoginForm> {
           // Handle successful login, e.g., navigate to home screen
           print('Login successful: ${state.loginEntity}');
           await CacheHelper().saveData(key: AppConstants.iSLOGIN, value: true);
-          context.pushReplacementNamed(RouterName.bottonNavWithAnimatedIcons);
+          context.pushReplacementNamed(RouterName.bottomNavPage);
         } else if (state is LoginFailure) {
           setState(() {
             isLoading = false;

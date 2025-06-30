@@ -11,6 +11,8 @@ dependencies:
     path: core/services
   login: 
     path: features/login
+  main_navigation: 
+    path: features/main_navigation
   home: 
     path: features/home
   constants:
@@ -41,9 +43,9 @@ flutter:
 
   uses-material-design: true
 
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/myPhoto.jpeg
+    - assets/animated_icon_set_-_1_color.riv
 
   # example:
   # fonts:

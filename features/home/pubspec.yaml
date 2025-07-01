@@ -19,6 +19,8 @@ dependencies:
     path: ../../core/constants
   login:
     path: ../../features/login
+  melos_test:
+    path: ../../
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8

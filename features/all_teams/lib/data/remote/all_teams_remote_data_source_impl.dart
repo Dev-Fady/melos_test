@@ -25,6 +25,8 @@ class AllTeamsRemoteDataSourceImpl implements AllTeamsRemoteDataSource {
         version: version,
         sport: sport,
         page: page,
+        apiToken:
+            'tXhcPwAG9JccxaBGvbeVonQFGmhAZ3BUShohhaztKdGn5x5q1eGrdJfcGZqQ',
       );
       return response.data;
     });

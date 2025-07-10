@@ -1,3 +1,4 @@
+import 'package:all_teams/presentation/all_teams.dart';
 import 'package:flutter/material.dart';
 import 'package:home/presentation/home_screen.dart';
 import 'package:main_navigation/presentation/widget/bottom_nav_bar.dart';
@@ -13,7 +14,7 @@ class _BottomNavPageState extends State<BottomNavPage> {
   int selectedNavIndex = 0;
 
   final List<Widget> pages = [
-    Center(child: Text('Search')),
+    AllTeams(),
     Center(child: Text('Notifications')),
     Center(child: Text('Settings')),
     Center(child: Text('Star')),

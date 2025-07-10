@@ -7,7 +7,7 @@ extension AllTeamsModelMapper on AllTeamModel {
       name: name ?? 'Unknown Team',
       imagePath: imagePath ?? 'https://example.com/default_image.png',
       founded: founded ?? 0,
-      lastPlayed: lastPlayed ?? 'Unknown Date',
+      lastPlayed: lastPlayed ?? DateTime.now(),
     );
   }
 }

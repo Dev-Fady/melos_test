@@ -7,8 +7,8 @@ class AllTeamModel {
   @JsonKey(name: "image_path")
   String? imagePath;
   int? founded;
-  @JsonKey(name: "last_played")
-  String? lastPlayed;
+  @JsonKey(name: "last_played_at")
+  DateTime? lastPlayed;
 
   AllTeamModel({this.name, this.imagePath, this.founded, this.lastPlayed});
 

@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:services/error_handler/failure.dart';
 
 abstract class AllTeamsRepo {
-  Future<Either<Failure, List<AllTeamsResponseEntity>>> getAllTeams({
+  Future<Either<Failure, AllTeamsResponseEntity>> getAllTeams({
     required int page,
   });
 }

@@ -14,10 +14,11 @@ abstract class AllTeamsServer {
     ParseErrorLogger? errorLogger,
   }) = _AllTeamsServer;
 
-  @GET("/:version/:sport/teams")
+  @GET("/v{version}/{sport}/teams")
   Future<HttpResponse<AllTeamsResponseModel>> getAllTeams({
     @Path("version") required String version,
     @Path("sport") required String sport,
+    @Query("api_token") required String apiToken,
     @Query("page") required int page,
   });
 }

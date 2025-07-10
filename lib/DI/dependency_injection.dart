@@ -1,3 +1,10 @@
+import 'package:all_teams/data/local_data/all_teams_loacl_data_source.dart';
+import 'package:all_teams/data/local_data/all_teams_loacl_data_source_impl.dart';
+import 'package:all_teams/data/remote/all_teams_remote_data_source.dart';
+import 'package:all_teams/data/remote/all_teams_remote_data_source_impl.dart';
+import 'package:all_teams/data/repo/all_teams_repo_impl.dart';
+import 'package:all_teams/data/server/all_teams_server.dart';
+import 'package:all_teams/domian/repo/all_teams_repo.dart';
 import 'package:constants/app_constants.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
@@ -24,17 +31,21 @@ final getIt = GetIt.instance;
 
 Future<void> setupGetIt() async {
   getIt.registerLazySingleton<InternetConnectionChecker>(
-      () => InternetConnectionChecker());
+    () => InternetConnectionChecker(),
+  );
 
-  getIt.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(
-      getIt())); // getIt() here means: give me the InternetConnectionChecker
+  getIt.registerLazySingleton<NetworkInfo>(
+    () => NetworkInfoImpl(getIt()),
+  ); // getIt() here means: give me the InternetConnectionChecker
 
   // Dio Factory
-  getIt.registerLazySingleton<DioFactory>(() => DioFactory(
-        baseUrl: AppConstants.baseUrl,
-        accessToken: AppConstants.defaultAccessToken,
-        language: AppConstants.defaultLanguage,
-      ));
+  getIt.registerLazySingleton<DioFactory>(
+    () => DioFactory(
+      baseUrl: AppConstants.baseUrl,
+      accessToken: AppConstants.defaultAccessToken,
+      language: AppConstants.defaultLanguage,
+    ),
+  );
 
   // Dio - must be retrieved after registering DioFactory
   final dioFactory = getIt<DioFactory>();
@@ -46,19 +57,22 @@ Future<void> setupGetIt() async {
 
   // Login Remote Data Source
   getIt.registerLazySingleton<LoginRemoteDataSource>(
-      () => LoginRemoteDataSourceImpl(
-            loginService: getIt<LoginService>(),
-            networkInfo: getIt<NetworkInfo>(),
-          ));
+    () => LoginRemoteDataSourceImpl(
+      loginService: getIt<LoginService>(),
+      networkInfo: getIt<NetworkInfo>(),
+    ),
+  );
 
   getIt.registerLazySingleton<LoginLocalDataSource>(
     () => LoginLocalDataScurceImpl(),
   );
 
-  getIt.registerLazySingleton<LoginRepository>(() => LoginRepoImpl(
-        loginRemoteDataSourcel: getIt<LoginRemoteDataSource>(),
-        localDataSource: getIt<LoginLocalDataSource>(),
-      ));
+  getIt.registerLazySingleton<LoginRepository>(
+    () => LoginRepoImpl(
+      loginRemoteDataSourcel: getIt<LoginRemoteDataSource>(),
+      localDataSource: getIt<LoginLocalDataSource>(),
+    ),
+  );
 
   //  home Service (Retrofit)
   getIt.registerLazySingleton<HomeServer>(() => HomeServer(dio));
@@ -82,6 +96,30 @@ Future<void> setupGetIt() async {
       homeRemoteDataSource: getIt<HomeRemoteDataSource>(),
       loginLocalDataSource: getIt<LoginLocalDataSource>(),
       homeLocalDataSource: getIt<HomeLocalDataSource>(),
+    ),
+  );
+
+  // all teams service (Retrofit)
+  getIt.registerLazySingleton<AllTeamsServer>(() => AllTeamsServer(dio));
+
+  // all teams Remote Data Source
+  getIt.registerLazySingleton<AllTeamsRemoteDataSource>(
+    () => AllTeamsRemoteDataSourceImpl(
+      allTeamsServer: getIt<AllTeamsServer>(),
+      networkInfo: getIt<NetworkInfo>(),
+    ),
+  );
+
+  // all teams local data source
+  getIt.registerLazySingleton<AllTeamsLoaclDataSource>(
+    () => AllTeamsLoaclDataSourceImpl(),
+  );
+
+  // all teams Repo
+  getIt.registerLazySingleton<AllTeamsRepo>(
+    () => AllTeamsRepoImpl(
+      remoteDataSource: getIt<AllTeamsRemoteDataSource>(),
+      loaclDataSource: getIt<AllTeamsLoaclDataSource>(),
     ),
   );
 }

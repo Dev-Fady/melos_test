@@ -7,14 +7,19 @@ final class AllTeamsInitial extends AllTeamsState {}
 
 final class AllTeamsLoading extends AllTeamsState {}
 
-final class AllTeamsSuccess extends AllTeamsState {
-  final AllTeamsResponseEntity allTeamsResponseEntity;
+class AllTeamsPaginationLoading extends AllTeamsState {}
 
-  AllTeamsSuccess({required this.allTeamsResponseEntity});
+class AllTeamsSuccess extends AllTeamsState {
+  final List<AllTeamsEntity> teams;
+  AllTeamsSuccess({required this.teams});
 }
 
-final class AllTeamsFailure extends AllTeamsState {
+class AllTeamsFailure extends AllTeamsState {
   final String errorMessage;
-
   AllTeamsFailure({required this.errorMessage});
+}
+
+class AllTeamsPaginationFailure extends AllTeamsState {
+  final String errorMessage;
+  AllTeamsPaginationFailure({required this.errorMessage});
 }

@@ -14,11 +14,17 @@ dependencies:
   flutter:
     sdk: flutter
   dartz: ^0.10.1
+  dio: ^5.8.0+1
+  pretty_dio_logger: ^1.4.0
+  json_annotation: ^4.9.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  retrofit_generator: ^9.2.0
+  json_serializable: ^6.9.5
+  build_runner: ^2.4.15
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -1,5 +1,7 @@
-# melos_managed_dependency_overrides: extensions,login,services,cache,constants,home,main_navigation
+# melos_managed_dependency_overrides: extensions,login,services,cache,constants,home,main_navigation,all_teams
 dependency_overrides:
+  all_teams:
+    path: ..\\..\\features\\all_teams
   cache:
     path: ..\\cache
   constants:

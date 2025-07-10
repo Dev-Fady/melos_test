@@ -2,14 +2,18 @@ name: all_teams
 description: "A new Flutter package project."
 version: 0.0.1
 homepage:
+publish_to: none
 
 environment:
   sdk: ^3.8.1
   flutter: ">=1.17.0"
 
 dependencies:
+  services:
+    path: ../../core/services
   flutter:
     sdk: flutter
+  dartz: ^0.10.1
 
 dev_dependencies:
   flutter_test:

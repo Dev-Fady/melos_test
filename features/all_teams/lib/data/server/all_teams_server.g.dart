@@ -23,17 +23,21 @@ class _AllTeamsServer implements AllTeamsServer {
   Future<HttpResponse<AllTeamsResponseModel>> getAllTeams({
     required String version,
     required String sport,
+    required String apiToken,
     required int page,
   }) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'page': page};
+    final queryParameters = <String, dynamic>{
+      r'api_token': apiToken,
+      r'page': page,
+    };
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<HttpResponse<AllTeamsResponseModel>>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/:version/:sport/teams',
+            '/v${version}/${sport}/teams',
             queryParameters: queryParameters,
             data: _data,
           )

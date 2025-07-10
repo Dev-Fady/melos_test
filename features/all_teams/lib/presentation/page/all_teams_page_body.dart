@@ -2,6 +2,7 @@ import 'package:all_teams/presentation/cubit/all_teams/all_teams_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 class AllTeamsPageBody extends StatefulWidget {
   const AllTeamsPageBody({super.key});
@@ -66,6 +67,9 @@ class _AllTeamsPageBodyState extends State<AllTeamsPageBody> {
             itemBuilder: (context, index) {
               if (index < teams.length) {
                 final team = teams[index];
+                // final DateTime lastPlayedDate = DateTime(t);
+                final String formattedDate =
+                    DateFormat('MMMM d, y').format(team.lastPlayed);
                 return Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
@@ -100,7 +104,7 @@ class _AllTeamsPageBodyState extends State<AllTeamsPageBody> {
                           children: [
                             const Icon(Icons.sports_soccer, size: 16),
                             const SizedBox(width: 5),
-                            Text('Last Played: ${team.lastPlayed}'),
+                            Text('Last Played: $formattedDate'),
                           ],
                         ),
                       ],

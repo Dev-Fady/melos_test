@@ -23,12 +23,22 @@ class AllTeamsRepoImpl implements AllTeamsRepo {
       sport: 'football',
       page: page,
     );
-    return result.fold(
-      (failure) {
+    return await result.fold(
+      (failure) async {
+        //? Try to retrieve data from the cache only if it is the first page.
+        if (page == 1) {
+          final cachedData = await loaclDataSource.getCachedAllTeamsData();
+          if (cachedData != null) {
+            return Right(cachedData.toEntity());
+          }
+        }
         return Left(failure);
       },
       (response) {
-        loaclDataSource.cacheAllTeamsData(allTeamsResponseModel: response);
+        // ? If the data from the Internet is successful, save it in the cache (only the first page)
+        if (page == 1) {
+          loaclDataSource.cacheAllTeamsData(allTeamsResponseModel: response);
+        }
         return Right(response.toEntity());
       },
     );
